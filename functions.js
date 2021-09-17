@@ -154,8 +154,9 @@ const printBestChromossome = (population, numGeracao, print=true) => {
   return new Promise(resolve => {
 
     let bestChr = {chr: '', apt: 0};
-
+    let mediaApt = 0;
     population.forEach(chromosome => {
+      mediaApt = mediaApt + chromosome.apt;
       if(chromosome.apt > bestChr.apt){
         bestChr = chromosome;
       }
@@ -163,6 +164,18 @@ const printBestChromossome = (population, numGeracao, print=true) => {
 
     if(print){
       console.log(`Geração: ${numGeracao} Cromossomo: ${bestChr.chr.join('')}  Aptidão: ${bestChr.apt.toFixed(6)}`);
+      console.log(`Media da aptidão ${(mediaApt / population.length).toFixed(6)}`);
+    }
+
+    if(print && numGeracao === num_ger){
+      let x = (bestChr.chr.slice(0, (sizeChromosome / 2)).join(''));
+      let y = (bestChr.chr.slice(sizeChromosome / 2)).join('');
+
+      let valueX = parseInt(x, 2);
+      let valueY = parseInt(y, 2);
+      
+      console.log(`Cromossomo X: ${x} Valor de X: ${valueX} \nCromossomo X: ${y} Valor de X: ${valueY}`);
+
     }
     
     resolve(bestChr);

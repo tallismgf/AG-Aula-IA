@@ -21,6 +21,8 @@ const start = async () => {
     population2 = [];
   }
 
+  
+
 }
 
 start();
