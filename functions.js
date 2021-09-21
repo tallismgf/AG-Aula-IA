@@ -1,5 +1,5 @@
 const pop_size = 100;
-const num_ger = 40;
+const num_ger = 200;
 const sizeChromosome = 44;
 const TaxaMutacao = 0.008;
 const TaxaCrossover = 0.65;
@@ -171,10 +171,10 @@ const printBestChromossome = (population, numGeracao, print=true) => {
       let x = (bestChr.chr.slice(0, (sizeChromosome / 2)).join(''));
       let y = (bestChr.chr.slice(sizeChromosome / 2)).join('');
 
-      let valueX = parseInt(x, 2);
-      let valueY = parseInt(y, 2);
+      let valueX = (parseInt(x, 2) * MultCalcApti) - 100;
+      let valueY = (parseInt(y, 2) * MultCalcApti) - 100;
       
-      console.log(`Cromossomo X: ${x} Valor de X: ${valueX} \nCromossomo X: ${y} Valor de X: ${valueY}`);
+      console.log(`Cromossomo X: ${x} Valor de X: ${valueX} \nCromossomo Y: ${y} Valor de Y: ${valueY}`);
 
     }
     
